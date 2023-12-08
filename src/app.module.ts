@@ -9,9 +9,10 @@ import { IngredientsService } from './ingredients/ingredients.service';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+import { CatsModule } from './cat/cats.module';
 
 @Module({
-  imports: [UserModule, RecipesModule, IngredientsModule, AuthModule],
+  imports: [UserModule, RecipesModule, IngredientsModule, AuthModule, CatsModule],
   controllers: [AppController, RecipesController, AuthController],
   providers: [AppService, RecipesService, IngredientsService],
 })
