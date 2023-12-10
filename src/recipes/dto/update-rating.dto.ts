@@ -1,9 +1,8 @@
 import { ApiProperty, ApiBody } from '@nestjs/swagger';
 
-export class CreateRecipesDto {
+export class UpdateRatingDto {
     @ApiProperty()
-    name: string;
-
+    _id: string;
     @ApiProperty()
     rating: number;
 }
