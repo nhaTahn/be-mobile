@@ -14,6 +14,6 @@ import { CatsModule } from './cat/cats.module';
 @Module({
   imports: [UserModule, RecipesModule, IngredientsModule, AuthModule, CatsModule],
   controllers: [AppController, RecipesController, AuthController],
-  providers: [AppService, RecipesService, IngredientsService],
+  providers: [AppService, IngredientsService],
 })
 export class AppModule {}
