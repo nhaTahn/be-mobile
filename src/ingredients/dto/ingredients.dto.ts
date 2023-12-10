@@ -1,4 +1,8 @@
+import { ApiProperty } from '@nestjs/swagger';
 export class IngredientsDto {
-    readonly name: string;
-    readonly description: string;
+    @ApiProperty()
+    name: string;
+    
+    @ApiProperty()
+    description: string;
   }

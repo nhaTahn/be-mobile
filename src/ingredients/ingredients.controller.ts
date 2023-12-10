@@ -1,10 +1,10 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { IngredientsService } from './ingredients.service';
 import { IngredientsDto } from './dto/ingredients.dto';
 import { Ingredients } from './interfaces/ingredients.interface';
-// import { ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 
-// @ApiTags('Ingredients')
+@ApiTags('Ingredients')
 @Controller('ingredients')
 export class IngredientsController {
     constructor(private readonly ingredientsService: IngredientsService) {}
@@ -17,5 +17,10 @@ export class IngredientsController {
     async findAll(): Promise<Ingredients[]> {
         return this.ingredientsService.findAll();
     }
+
+    @Get(':id')
+    async findById(@Param('id') id: string): Promise<Ingredients> {
+        return this.ingredientsService.findById(id);
+  }
 }
 

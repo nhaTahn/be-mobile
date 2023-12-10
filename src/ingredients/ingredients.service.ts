@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Ingredients } from './interfaces/ingredients.interface';
 import { IngredientsDto } from './dto/ingredients.dto';
 
@@ -17,4 +17,16 @@ export class IngredientsService {
     async findAll(): Promise<Ingredients[]> {
     return this.ingredientsModel.find().exec();
     }
+
+    async findById(id: string): Promise<Ingredients> {
+        try {
+          const ingredients = await this.ingredientsModel.findById(id).exec();
+          if (!ingredients) {
+            throw new NotFoundException(`Recipe with ID ${id} not found`);
+          }
+          return ingredients;
+        } catch (error) {
+          throw new NotFoundException(`Recipe with ID ${id} not found`);
+        }
+      }
 }
