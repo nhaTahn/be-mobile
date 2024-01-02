@@ -27,5 +27,10 @@ export class IngredientsController {
     async deleteById(@Param('id') id: string): Promise<void> {
         return this.ingredientsService.deleteById(id);
     }
+
+    @Delete()
+    async deleteAll(): Promise<void> {
+        return this.ingredientsService.deleteAll();
+    }
 }
 

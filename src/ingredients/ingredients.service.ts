@@ -40,4 +40,12 @@ export class IngredientsService {
       throw new NotFoundException(`Recipe with ID ${id} not found`);
     }
   }
+  async deleteAll(): Promise<void> {
+    try {
+      const result = await this.ingredientsModel.deleteMany({})
+    }
+    catch {
+      throw new NotFoundException(`hehehe`);
+    }
+  }
 }
