@@ -36,4 +36,5 @@ export class RecipesController {
   async findById(@Param('id') id: string): Promise<Recipes> {
     return this.recipesService.findById(id);
   }
+  
 }
